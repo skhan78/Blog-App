@@ -1,33 +1,29 @@
 import React, { useState } from 'react'
 
 export default function About() {
-  // let myStyle ={
-  //  color:'white',
-  //  backgroundColor:'black'
-  // }
+
   const[myStyle, setMyStyle] = useState({
     color:'white',
     backgroundColor:'black',
   })
 
-  const[btntext, setBtnText] = useState("Enable Dark Mode")
+  const[btntext, setBtnText] = useState("off")
 
-  const toggleStyle =()=>{
+  const changeButton=()=>{
     if(myStyle.color==="white"){
       setMyStyle({
         color: 'black',
         backgroundColor: 'white'
       })
-      setBtnText("Enable Dark Mode")
+      setBtnText("On")
     }
     else{
       setMyStyle({
         color: 'white',
         backgroundColor: 'black',
         border:'1px solid white'
-
       })
-      setBtnText("Enable Light Mode")
+      setBtnText("Off")
     }
   }
 
@@ -60,8 +56,11 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="container my-2">
-        <button onClick={toggleStyle} className='btn btn-primary'>{btntext}</button>
+
+      <div className="form-check form-switch">
+        <h7>Light Mode:</h7>
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{btntext}</label>
+        <input className="form-check-input" type="checkbox" onChange={changeButton} role="switch" id="flexSwitchCheckDefault"/>
       </div>
     </div>
   )
