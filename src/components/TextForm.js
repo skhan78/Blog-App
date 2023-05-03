@@ -7,8 +7,10 @@ export default function TextForm(props){
     setText(text.toLowerCase())
   }
   const handleOnChange = (event)=>{
-    console.log(event)
     setText(event.target.value)
+  }
+  const clearBox =()=>{
+    setText('')
   }
   const [text, setText]=useState("Enter your text here...");
 
@@ -20,7 +22,8 @@ export default function TextForm(props){
         <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
       </div>
       <button className="btn btn-primary" onClick={handleUpClick}>convert to uppercase</button>
-      <button className="btn btn-danger mx-3" onClick={handleLoClick}>convert to lowercase</button>
+      <button className="btn btn-secondary mx-1" onClick={handleLoClick}>convert to lowercase</button>
+      <button className="btn btn-danger mx-1" onClick={clearBox}>clear text</button>
     </div>
     <div className="container my-2">
       <h1>Your text summary</h1>
