@@ -1,31 +1,8 @@
 import React, { useState } from 'react'
 
-export default function About() {
+export default function About(props) {
 
-  const[myStyle, setMyStyle] = useState({
-    color:'white',
-    backgroundColor:'black',
-  })
-
-  const[btntext, setBtnText] = useState("off")
-
-  const changeButton=()=>{
-    if(myStyle.color==="white"){
-      setMyStyle({
-        color: 'black',
-        backgroundColor: 'white'
-      })
-      setBtnText("On")
-    }
-    else{
-      setMyStyle({
-        color: 'white',
-        backgroundColor: 'black',
-        border:'1px solid white'
-      })
-      setBtnText("Off")
-    }
-  }
+  const { myStyle} = props;
 
   return (
     <div className='container' style={myStyle}>
@@ -55,12 +32,6 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="form-check form-switch">
-        <h7>Light Mode:</h7>
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{btntext}</label>
-        <input className="form-check-input" type="checkbox" onChange={changeButton} role="switch" id="flexSwitchCheckDefault"/>
       </div>
     </div>
   )
